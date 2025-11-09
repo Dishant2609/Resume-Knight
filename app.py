@@ -80,7 +80,7 @@ if analyze and uploaded_file:
 
         analysis_prompt = f"""
                             You are ResumeSherlock, a resume detective.
-                            Provide a short, concise, bullet-point style analysis** (step by step CoT) for the resume:
+                            Provide a short, concise, bullet-point style analysis** (step-by-step CoT) for the resume:
 
                             1. List Strengths
                             2. List Weaknesses
@@ -101,7 +101,7 @@ if analyze and uploaded_file:
                 max_tokens=600
             )
         analysis_result = response.choices[0].message.content
-        st.markdown(" 📝 Resume Analysis (Concise)")
+        st.markdown(" Resume Analysis (Concise)")
         st.markdown(analysis_result)
 
         
@@ -128,7 +128,7 @@ if analyze and uploaded_file:
             )
         ats_result = ats_response.choices[0].message.content
         ats_score = extract_score(ats_result)
-        st.markdown("📊 ATS Score")
+        st.markdown(" ATS Score")
         if ats_score:
             st.metric("ATS Score", f"{ats_score}/100")
             st.progress(ats_score / 100)
