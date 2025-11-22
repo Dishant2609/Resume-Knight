@@ -49,7 +49,7 @@ job_role = st.text_input("Enter the job role (optional)")
 
 
 
-analyze = st.button("🔍 Analyze Resume")
+analyze = st.button(" Analyze Resume")
 
 
 def extract_text_from_pdf(pdf_file):
@@ -90,7 +90,7 @@ if analyze and uploaded_file:
                             Resume content:
                             {resume_text}
                             """
-        with st.spinner("🕵️ Analyzing resume..."):
+        with st.spinner(" Analyzing resume..."):
             response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
@@ -107,7 +107,7 @@ if analyze and uploaded_file:
         
         ats_prompt = f"""
                         You are an ATS simulation tool.
-                        Provide a **short, bullet-point ATS evaluation** (step by step Cot):
+                        Provide a **short, bullet-point ATS evaluation** (step-by-step Cot):
 
                         1. Section-wise score (Formatting, Skills, Experience, Contact Info)
                         2. Overall ATS score (0-100)
@@ -136,5 +136,5 @@ if analyze and uploaded_file:
 
         
     except Exception as e:
-        st.error(f"❌ Error: {str(e)}")
+        st.error(f" Error: {str(e)}")
 
