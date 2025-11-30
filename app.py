@@ -116,7 +116,7 @@ if analyze and uploaded_file:
                         Resume content:
                         {resume_text}
                         """
-        with st.spinner("📊 Calculating ATS Score..."):
+        with st.spinner("Calculating ATS Score..."):
             ats_response = client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[
