@@ -9,13 +9,11 @@ import re
 
 load_dotenv()
 
-
 st.set_page_config(
     page_title="Resume Knight",
     page_icon="🦇",
     layout="centered"
 )
-
 
 page_bg_img = """
 <style>
@@ -45,8 +43,6 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 uploaded_file = st.file_uploader("Upload your resume (PDF or TXT)", type=["pdf", "txt"])
 job_role = st.text_input("Enter the job role (optional)")
-
-
 
 
 analyze = st.button(" Analyze Resume")
@@ -103,8 +99,7 @@ if analyze and uploaded_file:
         analysis_result = response.choices[0].message.content
         st.markdown(" Resume Analysis (Concise)")
         st.markdown(analysis_result)
-
-        
+ 
         ats_prompt = f"""
                         You are an ATS simulation tool.
                         Provide a **short, bullet-point ATS evaluation** (step-by-step Cot):
