@@ -32,3 +32,13 @@ python -m venv .venv
 source .venv/bin/activate
 
 pip install -r requirements.txt
+
+
+Create .env file:
+
+OPENAI_API_KEY=your_api_key
+
+
+Run the app:
+
+streamlit run app.py
