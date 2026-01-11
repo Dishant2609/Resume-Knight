@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Resume Knight
 
 **Resume Knight** is an AI-powered resume analyzer built with **Streamlit** that provides **concise feedback and an ATS-style score** for uploaded resumes.
@@ -42,3 +43,13 @@ OPENAI_API_KEY=your_api_key
 Run the app:
 
 streamlit run app.py
+=======
+# 🦇 Resume Knight
+
+AI-powered "Resume Inspector". Upload your resume (PDF/TXT) and get "AI feedback + ATS score" instantly.  
+
+Features
+- Upload resume (PDF or TXT)  
+- AI feedback: strengths, weaknesses, and suggestions  
+- ATS scoring (0–100)
+>>>>>>> 8d80355 (refactor: clean up app.py and improve resume analysis logic)
