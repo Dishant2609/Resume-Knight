@@ -97,7 +97,7 @@ if analyze and uploaded_file:
                 max_tokens=600
             )
         analysis_result = response.choices[0].message.content
-        st.markdown(" Resume Analysis (Concise)")
+        st.markdown("Resume Analysis")
         st.markdown(analysis_result)
  
         ats_prompt = f"""
@@ -132,3 +132,4 @@ if analyze and uploaded_file:
         
     except Exception as e:
         st.error(f" Error: {str(e)}")
+
