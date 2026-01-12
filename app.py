@@ -6,7 +6,6 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import re
 
-
 load_dotenv()
 
 st.set_page_config(
@@ -28,22 +27,17 @@ page_bg_img = """
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-
 st.title("🦇 Resume Knight")
 st.markdown("Upload your resume and get **AI powered concise feedback and ATS score!**")
-
 
 with st.sidebar:
     creativity = st.slider(" Creativity (temperature)", 0.0, 1.0, 0.7)
 
-
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key=OPENAI_API_KEY)
 
-
 uploaded_file = st.file_uploader("Upload your resume (PDF or TXT)", type=["pdf", "txt"])
 job_role = st.text_input("Enter the job role (optional)")
-
 
 analyze = st.button(" Analyze Resume")
 
@@ -52,14 +46,17 @@ def extract_text_from_pdf(pdf_file):
     pdf_reader = PyPDF2.PdfReader(pdf_file)
     return "\n".join([page.extract_text() for page in pdf_reader.pages])
 
+
 def extract_text(uploaded_file):
     if uploaded_file.type == "application/pdf":
         return extract_text_from_pdf(io.BytesIO(uploaded_file.read()))
     return uploaded_file.read().decode("utf-8")
 
+
 def extract_score(text):
     match = re.search(r"(\d{1,3})\s*/?\s*100", text)
     return int(match.group(1)) if match else None
+
 
 def get_jobdesc_text(file, textarea):
     if file:
@@ -132,4 +129,3 @@ if analyze and uploaded_file:
         
     except Exception as e:
         st.error(f" Error: {str(e)}")
-
